@@ -1,0 +1,30 @@
+//AZKHA RIZKY I.A
+//202310370311245
+
+import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.Period;
+
+public class DataDiriProgram {
+public static void main(String[] args) {
+Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Inputkan nama: ");
+        String nama = scanner.nextLine();
+
+        System.out.print("Inputkan jenis gender (P/L): ");
+        char jenisGender = scanner.next().charAt(0);
+
+        System.out.print("Inputkan tanggal lahir (YYYY-MM-DD): ");
+        String tglLhrStr = scanner.next();
+
+        LocalDate tglLhr = LocalDate.parse(tglLhrStr);
+        LocalDate sekarang = LocalDate.now();
+        int umur = Period.between(tglLhr, sekarang).getYears();
+
+        System.out.println("Data diri:");
+        System.out.println("Nama: " + nama);
+        System.out.println("Jenis Gender : " + (jenisGender == 'P' ? "Perempuan" : "Laki-laki"));
+        System.out.println("Umur: " + umur + " tahun");
+    }
+}
